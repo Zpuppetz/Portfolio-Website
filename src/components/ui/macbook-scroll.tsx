@@ -92,7 +92,7 @@ export const MacbookScroll = ({
         translate={translate}
       />
       {/* Base area */}
-      <div className="relative -z-10 h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gray-200 dark:bg-[#272729]">
+      <div className="relative -z-10 h-[22rem] w-[32rem] overflow-hidden rounded-2xl bg-gradient-to-b from-[#e8e8ed] to-[#d1d1d6] shadow-2xl shadow-black/20">
         {/* above keyboard bar */}
         <div className="relative h-10 w-full">
           <div className="absolute inset-x-0 mx-auto h-4 w-[80%] bg-[#050505]" />
@@ -109,7 +109,7 @@ export const MacbookScroll = ({
           </div>
         </div>
         <Trackpad />
-        <div className="absolute inset-x-0 bottom-0 mx-auto h-2 w-20 rounded-tl-3xl rounded-tr-3xl bg-gradient-to-t from-[#272729] to-[#050505]" />
+        <div className="absolute inset-x-0 bottom-0 mx-auto h-2 w-20 rounded-tl-3xl rounded-tr-3xl bg-gradient-to-t from-[#c8c8cd] to-[#a8a8ad]" />
         {showGradient && (
           <div className="absolute inset-x-0 bottom-0 z-50 h-40 w-full bg-gradient-to-t from-white via-white to-transparent dark:from-black dark:via-black"></div>
         )}
@@ -140,15 +140,15 @@ export const Lid = ({
           transformOrigin: "bottom",
           transformStyle: "preserve-3d",
         }}
-        className="relative h-[12rem] w-[32rem] rounded-2xl bg-[#010101] p-2"
+        className="relative h-[12rem] w-[32rem] rounded-2xl bg-gradient-to-b from-[#d8d8dd] to-[#c8c8cd] p-2"
       >
         <div
           style={{
             boxShadow: "0px 2px 0px 2px #171717 inset",
           }}
-          className="absolute inset-0 flex flex-col items-center justify-center rounded-lg bg-[#010101] p-4"
+          className="absolute inset-0 flex flex-col items-center justify-center rounded-lg bg-[#1a1a2e] p-4"
         >
-         
+
         </div>
       </div>
       <motion.div
@@ -160,16 +160,16 @@ export const Lid = ({
           transformStyle: "preserve-3d",
           transformOrigin: "top",
         }}
-        className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-[#010101] p-2"
+        className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-gradient-to-b from-[#d8d8dd] to-[#c8c8cd] p-2 shadow-lg shadow-black/20"
       >
-        <div className="absolute inset-0 rounded-lg bg-[#272729] flex flex-col items-center justify-center p-4">
-          <img 
-            src="/profile.jpg" 
-            alt="profile" 
-            className="h-32 w-32 rounded-full object-cover mb-4"
+        <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-[#1a1a2e] via-[#16162a] to-[#0f0f1a] flex flex-col items-center justify-center p-4">
+          <img
+            src="/profile.jpg"
+            alt="profile"
+            className="h-32 w-32 rounded-full object-cover mb-4 ring-4 ring-purple-500/30 shadow-lg shadow-purple-500/20"
           />
-          <p className="text-white text-sm text-center">
-           Hi, I'm Keshav, a full-stack web developer specializing in backend systems. I evolve digital experiences through creativity, clean architecture, and effective problem-solving.
+          <p className="text-gray-300 text-sm text-center leading-relaxed">
+            Hi, I'm Keshav, a full-stack web developer specializing in backend systems. I evolve digital experiences through creativity, clean architecture, and effective problem-solving.
           </p>
         </div>
       </motion.div>
@@ -190,7 +190,7 @@ export const Trackpad = () => {
 
 export const Keypad = () => {
   return (
-    <div className="mx-1 h-full [transform:translateZ(0)] rounded-md bg-[#050505] p-1 [will-change:transform]">
+    <div className="mx-1 h-full [transform:translateZ(0)] rounded-md bg-[#2a2a2f] p-1 [will-change:transform]">
       {/* First Row */}
       <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
         <KBtn
@@ -561,12 +561,12 @@ export const KBtn = ({
     <div
       className={cn(
         "[transform:translateZ(0)] rounded-[4px] p-[0.5px] [will-change:transform]",
-        backlit && "bg-white/[0.2] shadow-xl shadow-white",
+        backlit && "bg-white/[0.3] shadow-xl shadow-white/50",
       )}
     >
       <div
         className={cn(
-          "flex h-6 w-6 items-center justify-center rounded-[3.5px] bg-[#0A090D]",
+          "flex h-6 w-6 items-center justify-center rounded-[3.5px] bg-[#1c1c1f]",
           className,
         )}
         style={{
