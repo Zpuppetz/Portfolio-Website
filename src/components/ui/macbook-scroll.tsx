@@ -162,15 +162,17 @@ export const Lid = ({
         }}
         className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-gradient-to-b from-[#d8d8dd] to-[#c8c8cd] p-2 shadow-lg shadow-black/20"
       >
-        <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-[#1a1a2e] via-[#16162a] to-[#0f0f1a] flex flex-col items-center justify-center p-4">
+        <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-teal-400 via-cyan-500 to-blue-600 flex flex-row items-center justify-center gap-6 p-6">
           <img
             src="/profile.jpg"
             alt="profile"
-            className="h-32 w-32 rounded-full object-cover mb-4 ring-4 ring-purple-500/30 shadow-lg shadow-purple-500/20"
+            className="h-44 w-44 rounded-2xl object-cover ring-4 ring-white/40 shadow-2xl shadow-black/30 flex-shrink-0"
           />
-          <p className="text-gray-300 text-sm text-center leading-relaxed">
-            Hi, I'm Keshav, a full-stack web developer specializing in backend systems. I evolve digital experiences through creativity, clean architecture, and effective problem-solving.
-          </p>
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-xl max-w-[55%]">
+            <p className="text-gray-800 text-sm leading-relaxed font-medium">
+              Hi, I'm <span className="text-cyan-600 font-bold">Keshav</span>, a full-stack web developer specializing in backend systems. I evolve digital experiences through creativity, clean architecture, and effective problem-solving.
+            </p>
+          </div>
         </div>
       </motion.div>
     </div>

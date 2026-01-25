@@ -21,6 +21,46 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Intersection Observer to detect which section is in view
+    useEffect(() => {
+        const sectionIds = navLinks.map(link => link.id);
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50% 0px -50% 0px', // Trigger when section is in the middle of viewport
+            threshold: 0
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveLink(entry.target.id);
+                    // Force update URL hash
+                    window.history.replaceState(null, null, `#${entry.target.id}`);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Observe all sections
+        sectionIds.forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                observer.observe(element);
+            }
+        });
+
+        return () => {
+            sectionIds.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    observer.unobserve(element);
+                }
+            });
+        };
+    }, []);
+
     const handleLinkClick = (id) => {
         setActiveLink(id);
         setIsMobileMenuOpen(false);
@@ -98,19 +138,19 @@ const Navbar = () => {
                         {/* CTA Button (Desktop) */}
                         <div className="hidden md:block">
                             <a
-                                href="#contact"
-                                onClick={() => handleLinkClick('contact')}
+                                href="/resume.pdf"
+                                download="Keshav_Gupta_Resume.pdf"
                                 className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-sm font-semibold shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden group"
                             >
                                 <span className="absolute inset-0 bg-gradient-to-r from-violet-400 to-fuchsia-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                <span className="relative z-10">Let's Talk</span>
+                                <span className="relative z-10">Resume</span>
                                 <svg
-                                    className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                                    className="relative z-10 w-4 h-4 group-hover:translate-y-0.5 transition-transform duration-300"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
                                 >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                 </svg>
                             </a>
                         </div>
@@ -167,16 +207,19 @@ const Navbar = () => {
 
                             {/* Mobile CTA */}
                             <a
-                                href="#contact"
-                                onClick={() => handleLinkClick('contact')}
-                                className="mt-3 px-4 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-sm font-semibold text-center shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300"
+                                href="/resume.pdf"
+                                download="Keshav_Gupta_Resume.pdf"
+                                className="mt-3 px-4 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-sm font-semibold text-center shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2"
                                 style={{
                                     transitionDelay: isMobileMenuOpen ? `${navLinks.length * 50}ms` : '0ms',
                                     transform: isMobileMenuOpen ? 'translateY(0)' : 'translateY(10px)',
                                     opacity: isMobileMenuOpen ? 1 : 0,
                                 }}
                             >
-                                Let's Talk →
+                                Resume
+                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
                             </a>
                         </div>
                     </div>
