@@ -33,3 +33,17 @@ coverage/
 
 # Eslint
 .eslintcache
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Misc
+.env.test
+.env.production

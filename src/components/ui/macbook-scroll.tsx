@@ -79,7 +79,7 @@ export const MacbookScroll = ({
       >
         {title || (
           <span>
-            This Macbook is built with Tailwindcss. <br /> No kidding.
+            This Macbook is built with Tailwindcss.
           </span>
         )}
       </motion.h2>
@@ -164,13 +164,13 @@ export const Lid = ({
       >
         <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-teal-400 via-cyan-500 to-blue-600 flex flex-row items-center justify-center gap-6 p-6">
           <img
-            src="/profile.jpg"
+            src="/profile1.jpg"
             alt="profile"
             className="h-44 w-44 rounded-2xl object-cover ring-4 ring-white/40 shadow-2xl shadow-black/30 flex-shrink-0"
           />
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-xl max-w-[55%]">
             <p className="text-gray-800 text-sm leading-relaxed font-medium">
-              Hi, I'm <span className="text-cyan-600 font-bold">Keshav</span>, a full-stack web developer specializing in backend systems. I evolve digital experiences through creativity, clean architecture, and effective problem-solving.
+              Hi, I'm <span className="text-cyan-600 font-bold">Keshav</span>, a full-stack web developer specializing in backend systems. I evolve digital experiences through creativity, clean architecture, and effective problem-solving. I also enjoy writing.
             </p>
           </div>
         </div>
